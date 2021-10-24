@@ -1,15 +1,12 @@
 package page;
 
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.junit.jupiter.api.Assertions;
-
-import java.util.Objects;
 
 public abstract class BasePage {
 
@@ -35,7 +32,7 @@ public abstract class BasePage {
     public void elementIsDisplayed(By elementBy) {
         waitVisibility(elementBy);
         boolean isDisplayed = driver.findElement(elementBy).isDisplayed();
-        Assertions.assertTrue(isDisplayed, "Элемент видим на странице");
+        Assert.assertTrue("Элемент видим на странице", isDisplayed);
     }
 
     protected void writeText(WebElement element, String sendKeys) {
