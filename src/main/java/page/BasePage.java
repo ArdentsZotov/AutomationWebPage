@@ -1,6 +1,7 @@
 package page;
 
 
+import org.apache.http.util.Asserts;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,6 +33,7 @@ public abstract class BasePage {
     public void elementIsDisplayed(By elementBy) {
         waitVisibility(elementBy);
         boolean isDisplayed = driver.findElement(elementBy).isDisplayed();
+        //Asserts.check(isDisplayed,"Элемент видим на странице");
         Assert.assertTrue("Элемент видим на странице", isDisplayed);
     }
 
